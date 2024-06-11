@@ -116,6 +116,7 @@ const Main = () => {
           <Route path='*' element={<NotFound/>}/>
           <Route path='/test' element={<Test/>}/>
           <Route path='/loading' element={<Loading/>}/>
+          <Route/>
         </Routes>
 
       {(!currentPath.pathname.startsWith('/login') && !currentPath.pathname.startsWith('/signup') && !currentPath.pathname.startsWith('/vet') && !currentPath.pathname.startsWith('/shop')) && <Footer/>}
