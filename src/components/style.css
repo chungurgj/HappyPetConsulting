@@ -429,20 +429,25 @@
 .uu{
     margin-top: 30px;
 }
-.shop-sidebar{
+/* .shop-sidebar{
+    flex: 1;
     height: 100vh;
     position: fixed;
-    width: 350px; /* Set the initial width as per your preference */
     background-color: ghostwhite;
-    overflow-x: hidden;
     display: flex;
     flex-direction: column;
     padding: 20px 40px;
     font-family: 'Manrope';
     margin-top: 95px;
     
+} */
+.shopSidebar{
+    flex: 1;
 }
-
+.productsContainer{
+    flex: 4;
+    border: 1px solid red;
+}
 .shop-container{
     display: flex;
     position: relative;
