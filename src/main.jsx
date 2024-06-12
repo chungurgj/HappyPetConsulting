@@ -118,7 +118,7 @@ const Main = () => {
           <Route path='/loading' element={<Loading/>}/>
         </Routes>
 
-      {(!currentPath.pathname.startsWith('/login') && !currentPath.pathname.startsWith('/signup') && !currentPath.pathname.startsWith('/vet') && !currentPath.pathname.startsWith('/shop')) && <Footer/>}
+      {(!currentPath.pathname.startsWith('/login') && !currentPath.pathname.startsWith('/signup') && !currentPath.pathname.startsWith('/vet')) && <Footer/>}
        
         </ChatProvider>
         </ConsProvider>
