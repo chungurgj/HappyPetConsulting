@@ -428,36 +428,78 @@
     flex: 1;
     background-color: ghostwhite;
     font-family: 'Manrope';
+
+    
+    
 }
 .shopSidebarContainer{
-    padding:15px clamp(20px,5vw,50px);
+    padding:15px clamp(10px,1.5vw,50px);
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     height: 45vh;
+
+    @media (max-width:510px){
+        height: auto;
+        
+        
+    }
+    
 }
 .productsContainer{
     flex: 4;
-    border: 1px solid red;
     display: flex;
     justify-content: space-evenly;
     flex-wrap: wrap;
+    padding: 40px 0;
+
+    @media (max-width:1000px) {
+        width: 55%;
+        flex: 2;
+    }
+
+    @media (max-width:510px) {
+        flex: 5;
+        width: 100vw;
+    }
 }
 .productBox {
-    width: calc(33.33% - 5%); /* Calculate 33.33% width minus margin */
-    margin-bottom: 5%;
-    max-height: 20vw;
-    border: 1px solid green;
+    width: 25.5%; /* Calculate 33.33% width minus margin */
+    margin-bottom: 30px;
+    min-height: 430px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    padding: 40px 50px;
+    border-radius: 15px;
+    background-color: ghostwhite;
+
+    @media (max-width:1260px){
+        width: 40%;
+    }
+    @media (max-width:1000px) {
+        width: 55%;
+    }
+    @media (max-width:705px) {
+        width: 75%;
+    }
+    @media (max-width:350px) {
+        width: 90%;
+    }
   }
 
 .productImg{
     display: flex;
     justify-content: center;
     align-items: center;
+    
 }
+
 .product-img{
     width: 220px;
     height: 220px;
+    max-width: 100%;
+    object-fit: contain; /* Ensures the image fits within the container without distortion */
+  
+    
 }
 .productGroup{
     display: flex;
@@ -475,10 +517,14 @@
 }
 .shop-container{
     display: flex;
-    position: relative;
     min-height: 1000px;
     box-sizing: border-box;
     padding-top:96px ;
+
+    @media (max-width:510px){
+        flex-direction: column;
+        
+    }
 }
 
 .footer-container {
@@ -516,11 +562,7 @@
     }
     
 }
-.reduce{
-    @media screen and (max-width:1385px) {
-        width: 180px;
-    }
-}
+
 .myselect{
     width: 100px;
 }
@@ -530,13 +572,21 @@
 
 .sidebar-list{
     list-style: none;
+    display: flex;
+    flex-direction: column;
 
+    @media (max-width:510px){
+        flex-direction: row;
+        justify-content: space-between;
+        
+        
+    }
    
 }
 .sidebar-list a{
     list-style: none;
     font-family: 'Manrope';
-    font-size: 15px;
+    font-size: clamp(12px,3vw,15px);
     text-decoration: none;
     color: black;
 }
@@ -872,11 +922,11 @@
     margin-left: 10px;
 }
 
-.disappear{
+/* .disappear{
     @media screen and (max-width:991px) {
         display: none;
     }
-}
+} */
 .addPet-button{
     width: 100%;
     margin-top: 15px;
