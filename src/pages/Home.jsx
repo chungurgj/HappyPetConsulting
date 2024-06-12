@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import Cover from '../components/user/Cover'
-import Text from '../components/user/jumbo'
+import Jumbo from '../components/user/Jumbo'
 import Group from '../components/user/group'
 import Counter from '../components/user/Counter'
 import {useName} from '../components/contexts/NameContext'
@@ -35,7 +35,7 @@ const Home = () => {
       <ModalAddPet open={openModalAddPet} onClose={()=>setOpenModalAddPet(false)}>
       </ModalAddPet>
       <Cover/>
-      <Text/>
+      <Jumbo/>
       <Group/>
       <Counter/>
     </div>
