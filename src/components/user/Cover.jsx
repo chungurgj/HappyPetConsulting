@@ -15,7 +15,7 @@ const Cover = () => {
         <CoverText/>
         <button className="btn  start-cover-btn" onClick={()=>navigate('/consultation')}>Започни веднаш</button>
       </div>
-      
+
       </div>
     </div>
   )
