@@ -446,6 +446,9 @@
     }
     
 }
+.shopSidebarContent{
+    margin-top: 20px;
+}
 .productsContainer{
     flex: 4;
     display: flex;
