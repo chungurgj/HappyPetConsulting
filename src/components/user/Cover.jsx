@@ -9,13 +9,13 @@ const Cover = () => {
     <div className='coverimg '>
       <div className="cover-position gap-5">
       <div >
-        <img src={Dog} width={370}/>
+        <img src={Dog} width={370} className='dogimg'/>
       </div>
       <div className="text-button-cont gap-4">
         <CoverText/>
         <button className="btn  start-cover-btn" onClick={()=>navigate('/consultation')}>Започни веднаш</button>
       </div>
-      
+
       </div>
     </div>
   )

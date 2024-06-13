@@ -1,6 +1,6 @@
 import '../style.css'
 
-const jumbo = () => {
+const Jumbo = () => {
   return (
     <div className="jumboSection">
         <div className='box'>
@@ -22,4 +22,4 @@ const jumbo = () => {
   )
 }
 
-export default jumbo
+export default Jumbo

@@ -1,25 +1,34 @@
 
-.nav-separate{
-    display: flex;
-    flex-direction: row;
-    margin: 0 100px;
-    float: right;
+:root{
+    --clr-cover:#4A5D6C;
 }
-.wrapper{
+
+/* .wrapper{
     display: flex;
     margin: 0 50px;
+} */
+.home-wrap{
+    padding-top: 96px;
 }
 .coverimg{
-    height: 500px;
-    background-color: #4A5D6C;
-    margin-top: 96px;
+    min-height: 500px;
+    background-color: var(--clr-cover);
     background-image: radial-gradient(circle at 10% 50%, white 0.2%, transparent 45%), linear-gradient(to bottom, #4A5D6C, #8299B7);
     color: white;
     font-family: 'Manrope';
     display: flex;
     justify-content: center;
     align-items: center;
+    padding: 50px 0;
 }
+.dogimg{
+    width: clamp(220px,25vw,370px);
+}
+.start-cover-btn{
+    width: clamp(250px,30vw,370px);
+    height: 50px;    
+}
+
 .cover-element{
     height: 400px;
     width: 450px;
@@ -29,12 +38,23 @@
 .cover-position{
     display: flex;
 }
+@media (max-width:750px){
+    .cover-position{
+        flex-direction: column-reverse;
+    }
+    .typing-animation{
+        min-height: 100px;
+        text-align: center;
+    }
+    .text-button-cont{
+        align-items: center;
+    }
+}
 .text-button-cont{
     display: flex;
     flex-direction: column;
     justify-content: center;
-    align-items: start;
-    
+  
     max-width: 650px;
     flex-wrap: wrap;
 }
@@ -47,10 +67,6 @@
     background-color:white;
     color: black;
 }
-.start-cover-btn{
-    width: 370px;
-    height: 50px;    
-}
 
 @keyframes typing {
     from { width: 0 }
@@ -58,12 +74,11 @@
 }
 .typing-animation {
     display: inline-block;
-    height: 100px;
-    padding-right: 3px; /* Adjust as needed */
     overflow-wrap: break-word; /* Allow text to wrap within words */
     word-wrap: break-word; /* Fallback for older browsers */
-    max-width: 650px; /* Set the maximum width of the container */
-    width: 650px;
+    width: clamp(200px,45vw,600px); /* Set the maximum width of the container */
+    font-size: clamp(25px,3vw,45px);
+    min-height: clamp(100px,10vw,200px);
 }
 
 @media (max-width: 650px) {
@@ -84,7 +99,6 @@
 .myfont{
     font-family: 'Manrope';
     font-size: 16px;
-   
 }
 .signupcolor{
     background-color: #bd494a;
@@ -156,6 +170,8 @@
 .group-img{
     border-radius: 20px;
     margin: 50px;
+    height: clamp(250px,20vw,350px);
+    width: clamp(250px,20vw,350px);
 }
 .group-text{
     font-family: 'Manrope';
@@ -180,41 +196,25 @@
     display: flex;
     flex-direction: row;
     justify-content: space-around;
-    padding: 50px 250px ;
     align-items: center;
 
-    @media screen and (max-width:1500px) {
-        padding: 50x 50px;
-    }
+   
     @media screen and (max-width:880px) {
         flex-direction: column;
     }
 }
 .counter{
-    height: 300px;
-    width: 300px;
+    height: clamp(250px,20vw,330px);
+    width: clamp(250px,20vw,330px);
     border-radius: 26px;
     background-color: ghostwhite;
-    padding: 50px;
+    padding: clamp(20px,3vw,50px);
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
-
-    @media screen and (max-width:1500px) {
-        margin: 30px;
-    }
-    @media screen and (max-width:1050px) {
-        margin: 10px;
-    }
-    @media screen and (max-width:980px) {
-        height: 270px;
-        width: 270px;
-    }
-    @media screen and (max-width:880px) {
-        height: 320px;
-        width: 320px;
-    }
+    margin: 5vw;
+    
 }
 .counter-header{
     font-family: 'Manrope';
@@ -232,22 +232,43 @@
     flex-direction: row;
     
 }
-
-  
-  
 .footer-info{
     display: flex;
-    flex-direction: row;
     justify-content: center;
+    flex-wrap: wrap;
+}
+
+.footer-icon{
+    width: clamp(30px,4vw,50px);
+    height: clamp(30px,4vw,50px);
 }
 .info{
     height: 150px;
-    width: 400px;
+    width: clamp(250px,33vw,400px);
     background-color: #bd494a;
     padding: 20px;
     display: flex;
     justify-content: center;
     align-items: center;
+
+    @media (max-width:523px) {
+        width: 100vw;
+    }
+}
+.info-text{
+    font-family: 'Oswald';
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin-left: 20px;
+}
+.info-text p{
+    font-size: clamp(12px,2vw,20px);
+}
+.info-text h2{
+    font-size: clamp(15px,2.5vw,25px);
 }
 .maps{
     background-color: #a23536;
@@ -262,11 +283,12 @@
     color: white;
 }
 .mycontainer{
-    padding: 50px 250px;
+    padding-top: 25px;
     display: flex;
-    flex-direction: row;
     justify-content: space-around;
+    flex-wrap: wrap;
 }
+
 .footerlist{
     font-family: 'Manrope';
     color: #adb5bd; 
@@ -313,21 +335,8 @@
     font-size: 20px;
     color: black;
 }
-.info-text{
-    font-family: 'Oswald';
-    color: white;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    margin-left: 20px;
-   
-}
-.product-img{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
+
+
 .imgimg{
     border-radius: 5px;
 }
@@ -351,8 +360,6 @@
     border: 1px solid #e8e8e8;
     border-radius: 10px;
     flex: 0 0 calc(33.33% - 20px);
-
-    
 }
 
 .product-info{
@@ -416,36 +423,124 @@
 .uu{
     margin-top: 30px;
 }
-.shop-sidebar{
-    height: 100vh;
-    position: fixed;
-    width: 350px; /* Set the initial width as per your preference */
+
+.shopSidebar{
+    flex: 1;
     background-color: ghostwhite;
-    overflow-x: hidden;
+    font-family: 'Manrope';
+ 
+    
+    
+}
+.shopSidebarContainer{
+    padding:15px clamp(10px,1.5vw,50px);
     display: flex;
     flex-direction: column;
-    padding: 20px 40px;
-    font-family: 'Manrope';
-    margin-top: 95px;
+    justify-content: space-between;
+    height: 45vh;
+    
+
+   
+    @media (max-width:510px){
+        height: auto;
+        
+        
+    }
+    
+}
+.shopSidebarContent{
+    margin-top: 20px;
+}
+.productsContainer{
+    flex: 4;
+    display: flex;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+    padding: 40px 0;
+
+    @media (max-width:1000px) {
+        width: 55%;
+        flex: 2;
+    }
+
+    @media (max-width:510px) {
+        flex: 5;
+        width: 100vw;
+    }
+}
+.productBox {
+    width: 25.5%; /* Calculate 33.33% width minus margin */
+    margin-bottom: 30px;
+    min-height: 430px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    padding: 40px 50px;
+    border-radius: 15px;
+    background-color: ghostwhite;
+
+    @media (max-width:1260px){
+        width: 40%;
+    }
+    @media (max-width:1000px) {
+        width: 55%;
+    }
+    @media (max-width:705px) {
+        width: 75%;
+    }
+    @media (max-width:350px) {
+        width: 90%;
+    }
+  }
+
+.productImg{
+    display: flex;
+    justify-content: center;
+    align-items: center;
     
 }
 
+.product-img{
+    width: 220px;
+    height: 220px;
+    max-width: 100%;
+    object-fit: contain; /* Ensures the image fits within the container without distortion */
+  
+    
+}
+.productGroup{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+}
+.productDivide{
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+    height: calc(20vw-220px);
+    border: 1px solid green;
+}
 .shop-container{
     display: flex;
-    position: relative;
-    height: 1500px;
+    min-height: 1000px;
     box-sizing: border-box;
+    padding-top:96px ;
+
+    @media (max-width:510px){
+        flex-direction: column;
+        
+    }
 }
 
 .footer-container {
-    min-height: 400px;
+    min-height: 500px;
     width: 100%;
     background-color: #343a40;
     color: white;
     position: relative;
     bottom: 0;
     margin-top: auto;
-   
+    padding-bottom: 50px 0;
   }
 
 .dropdown{
@@ -472,11 +567,7 @@
     }
     
 }
-.reduce{
-    @media screen and (max-width:1385px) {
-        width: 180px;
-    }
-}
+
 .myselect{
     width: 100px;
 }
@@ -486,13 +577,21 @@
 
 .sidebar-list{
     list-style: none;
+    display: flex;
+    flex-direction: column;
 
+    @media (max-width:510px){
+        flex-direction: row;
+        justify-content: space-between;
+        
+        
+    }
    
 }
 .sidebar-list a{
     list-style: none;
     font-family: 'Manrope';
-    font-size: 15px;
+    font-size: clamp(12px,3vw,15px);
     text-decoration: none;
     color: black;
 }
@@ -562,13 +661,7 @@
     
 }
 
-.productgroup{
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-    margin-top: 20px;
-}
+
 
  
 
@@ -834,11 +927,11 @@
     margin-left: 10px;
 }
 
-.disappear{
+/* .disappear{
     @media screen and (max-width:991px) {
         display: none;
     }
-}
+} */
 .addPet-button{
     width: 100%;
     margin-top: 15px;
@@ -1631,9 +1724,21 @@ option.redd{
 .consultation-container{
     display: flex;
     width: 100%;
-    height: calc(100vh - 95px);
+    min-height: 800px;
     font-family: 'Manrope';
     margin-top: 46px;
+    
+    @media (max-width:580px) {
+        flex-direction: column;
+        min-height: 2000px;
+    }
+}
+.consultation-sidebar{
+    flex: 2;
+    background-color: ghostwhite;  
+    
+   
+    
 }
 .vet-consultation-container{
     display: flex;
@@ -1642,19 +1747,14 @@ option.redd{
     height: 100%;
     overflow-y: hidden;
 }
-.consultation-sidebar{
-    flex: 2;
-    background-color: ghostwhite;  
-    height: 100vh;
-    max-width: 300px;
-}
+
 .sidebar-padding{
     padding: 20px 30px;
 }
 .cons-nav-main{
     flex: 8;
     display: flex;
-    
+    border: 1px solid red;
     justify-content: space-between;
 }
 .cons-nav-content{
@@ -2215,4 +2315,58 @@ video{
   .position{
     padding: 100px;
     
+  }
+
+  .consNavContainer{
+    flex: 8;
+    
+    display: flex;
+    justify-content: space-evenly;
+    height: 100%;
+    padding: clamp(100px,20vh,200px) 0;
+   
+   
+  }
+
+  .consNavComp {
+    min-height: 400px;
+    background-color: ghostwhite;
+    width: clamp(200px,25vw,400px);
+    border-radius: 20px;
+    box-shadow: 0 4px 8px #ccc;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    padding: 40px 20px; /* Optional: to add some padding inside the container */
+  }
+
+  
+  @media (max-width:800px) {
+    .consNavContainer{
+        flex-direction: column;
+        align-items: center;
+        padding: 50px;
+       
+    }
+    .consNavComp{
+        width: clamp(400px,55vw,600px);
+    }
+    .consultation-container{
+        height: 1500px;
+    }
+}
+  .consGroup{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    
+    height: 100%;
+
+  }
+
+  .btnConsNav{
+    width: 100%;
+    margin-top: 20px;
   }

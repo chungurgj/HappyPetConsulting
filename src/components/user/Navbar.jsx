@@ -154,8 +154,6 @@ const Navbar = () => {
 
       <ModalPet open={isOpenPet} onClose={()=>setIsOpenPet(false)}/>
 
-      
-
       <nav className="navbar navbar-expand-lg bg-light navbar-light fixed-top">
         <div className="container position-relative">
           <a className="navbar-brand" href="#"><img src={Logo} height={70} /></a>

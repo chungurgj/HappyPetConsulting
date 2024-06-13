@@ -8,21 +8,21 @@ const Footer = () => {
     <div className='footer-container bg-dark'>
        <div className='footer-info container'>
           <div className='maps info'>
-            <img src={Maps} height={50} className='info-icon'/>
+            <img src={Maps} height={50} className='footer-icon'/>
             <div className='info-text'>
               <p>Пронајдете не на</p>
               <h2> Google Maps</h2>
             </div>
           </div>
           <div className='telefon info'>
-            <img src={Telefon} height={50}/>
+            <img src={Telefon} height={50} className='footer-icon'/>
             <div className='info-text'>
               <p>Јавете се на телефон:</p>
               <h2>075-365/666</h2>
             </div>
           </div>
           <div className='instagram info'>
-            <img src={Facebook} height={50}/>
+            <img src={Facebook} height={50} className='footer-icon'/>
             <div className='info-text'>
               <p>Заследете не на</p>
               <h2>Facebook</h2>
