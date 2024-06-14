@@ -100,7 +100,7 @@ const Video = () => {
       <div className='consultation-main'>
         <ModalPayVideo open={openModalPay} onClose={()=>setOpenModalPay(false)} type={2} pet={selectedPet} 
         vet={selectedVet} problemDes={problemDes} date={dateTime} price={600} refreshData={setRefresh} />
-        <ModalAddPet open={openModalAddPet} noclose={true}/>
+        <ModalAddPet open={openModalAddPet} noclose={true} onClose={()=>setOpenModalAddPet(false)}/>
         <div className='video-form'> 
         <form className='form-padding' onSubmit={(e)=>handleSubmit(e) }>
           <h5>Закажување на онлајн видео преглед</h5>

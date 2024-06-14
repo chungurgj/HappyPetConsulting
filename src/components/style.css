@@ -1265,10 +1265,11 @@
 
   .vetvisits-container{
     display: flex;
-    height: 100vh;
+    min-height: 900px;
     font-family: 'Manrope';
+    
   }
-
+  
   .vetvisits-left-sidebar{
     flex: 2;
     background-color: ghostwhite;
@@ -1340,7 +1341,7 @@
 }
 
 .vetvisits-main-content{
-    padding: 200px;
+    padding: clamp(180px,25vw,200px) clamp(50px,8vw,200px);
     height: 100%;
     width: 100%;
     
