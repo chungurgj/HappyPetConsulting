@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import Cover from '../components/user/Cover'
-import Jumbo from '../components/user/Jumbo'
+import Jumbo from '../components/user/jumbo'
 import Group from '../components/user/group'
 import Counter from '../components/user/Counter'
 import {useName} from '../components/contexts/NameContext'

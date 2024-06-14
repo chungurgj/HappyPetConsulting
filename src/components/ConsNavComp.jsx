@@ -1,6 +1,12 @@
 import React from 'react'
+import { useNavigate } from 'react-router-dom'
+const ConsNavComp = ({imgUrl,title,text,navLocation}) => {
 
-const ConsNavComp = ({imgUrl,title,text}) => {
+    const navigate = useNavigate()
+
+    const handleNavigate = () =>{
+        navigate(navLocation)
+    }
   return (
     <div className='consNavComp'>
         <div className='consGroup'>
@@ -11,7 +17,7 @@ const ConsNavComp = ({imgUrl,title,text}) => {
         
      <div className='consGroup'>
         <small>{text}</small>
-        <button className='btn btn-success btnConsNav'>Продолжи</button>
+        <button onClick={handleNavigate} className='btn btn-success btnConsNav'>Продолжи</button>
      </div>
       
     </div>

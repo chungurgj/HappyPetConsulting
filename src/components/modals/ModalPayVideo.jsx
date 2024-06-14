@@ -8,10 +8,13 @@ import { HubConnectionBuilder,LogLevel } from '@microsoft/signalr'
 import axios from 'axios'
 import { useCons } from '../contexts/ConsContext'
 import { useName } from '../contexts/NameContext'
+import { useOutletContext } from 'react-router-dom'
 
-const ModalPayVideo = ({open,onClose,price,vet,pet,problemDes,date,refresh,type}) => {
+const ModalPayVideo = ({open,onClose,price,vet,pet,problemDes,date,type,refreshData}) => {
     const navigate = useNavigate()
-    const [connection,setConnection] = useState('')
+
+    const [refresh,setRefresh] = useOutletContext()
+
     const [disabled,setDisabled] = useState(false)
     const titleType = {
       1:"Текстуална консултација",
@@ -19,17 +22,20 @@ const ModalPayVideo = ({open,onClose,price,vet,pet,problemDes,date,refresh,type}
       3:"Итна консултација"
     }
 
+
     const submitPay = () =>{
       setDisabled(true)
     axios.post('https://localhost:7176/api/Consultation',{
       pet_Id:pet,
       vet_Id:vet,
-      consultationStart:null,
+      consultationStart:date,
       type_Id:type,
       price:null,
       des:problemDes
     })
       .then((response)=>{
+        setRefresh(!refresh)
+        refreshData()
         toast.success("Успешно закажан термин")
         const consId = response.data.id
         if(type === 1){

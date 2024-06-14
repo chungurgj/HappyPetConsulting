@@ -83,9 +83,9 @@ const Video = () => {
 
   }
   return (
-      <div className='consultation-main '>
+      <div className='consultation-main'>
         <ModalPayVideo open={openModalPay} onClose={()=>setOpenModalPay(false)} type={2} pet={selectedPet} 
-        vet={selectedVet} problemDes={problemDes} date={dateTime} price={600} refresh={()=>setRefresh(!refresh)}/>
+        vet={selectedVet} problemDes={problemDes} date={dateTime} price={600} refreshData={setRefresh} />
         <div className='video-form'> 
         <form className='form-padding' onSubmit={(e)=>handleSubmit(e) }>
           <h5>Закажување на онлајн видео преглед</h5>

@@ -1724,7 +1724,7 @@ option.redd{
 .consultation-container{
     display: flex;
     width: 100%;
-    min-height: 800px;
+    min-height: 900px;
     font-family: 'Manrope';
     margin-top: 46px;
     
@@ -1737,8 +1737,10 @@ option.redd{
     flex: 2;
     background-color: ghostwhite;  
     
+    @media (max-width:580px) {
+     flex: 1;
+    }
    
-    
 }
 .vet-consultation-container{
     display: flex;
@@ -1943,42 +1945,36 @@ option.redd{
     color: white;
 }
 .datetime-sidebar {
-    height: 100vh;
-    width: 300px;
     background-color: #343a40;
     flex: 2.5;
+
+    @media (max-width:800px){
+        flex: 1;
+    }
 
 }
 
 .video-form{
     flex: 5;
+   
     
+    @media (max-width:800px){
+        flex: 1;
+    }
+
 }
 .form-padding{
-    padding: 100px 170px;
+    padding: clamp(50px,15vw,150px) clamp(40px,10vw,200px);
 }
 .datetime-sidebar-content{
     width: 100%;
     height: 100%;
-    padding: 50px 80px;
+    padding: clamp(15px,4vw,50px) clamp(25px,5vw,80px);
     display: flex; /* Prevent sidebar from expanding */
     flex-direction: column; /* Stack children vertically */
-    margin-top: 20px;
+    margin-top: 50px;
 
-    @media screen and (max-width:1900px) {
-        padding: 50px 60px;
-    }
-
-    @media screen and (max-width:1740px) {
-        padding: 50px 40px;
-    }
-
-    @media screen and (max-width:1580px) {
-        padding: 50px 30px;
-    }
-    @media screen and (max-width:1224px) {
-        padding: 50px 20px;
-    }
+   
 }
  .marg{
     margin-top: 100px;
@@ -1988,18 +1984,29 @@ option.redd{
 .sidebar-time-slots{
     background-color: white;
     height: auto;
-    width: 100%;
+    
     border-radius: 20px;
     margin-top: 30px;
-    padding: 15px;
+    padding: clamp(15px,1.7vw,30px);
     display: flex;
     justify-content: center;
-    
+    align-items: center;
     
 }
+
+.slot-cont-side{
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    
+}
+
 .sidebar-time-slots p {
-    margin-left: 10px;
-    margin-top: 5px;
+    margin-left: clamp(5px,2vw,10px);
+    margin-top: clamp(5px,2vw,10px);
+   
 }
 .sep{
     display: flex;
@@ -2034,13 +2041,7 @@ option.redd{
     color: white;
     cursor: pointer;
 }
-.slot-cont-side{
-    display: flex;
-    flex-direction: row;
-    width: 100%;
-    flex-wrap: wrap;
-    justify-content: space-between;
-}
+
 .notav{
     background-color: #bd494a;
     color: white;
@@ -2135,9 +2136,14 @@ option.redd{
 .consultation-main{
     flex: 8;
     display: flex;
-    height: calc(100vh - 95px);
     width: 100%;
-  
+    
+
+    @media (max-width:800px) {
+        flex-direction: column;
+        
+    }
+    
 }
 .temp{
     margin-top: 46px;
@@ -2331,7 +2337,7 @@ video{
   .consNavComp {
     min-height: 400px;
     background-color: ghostwhite;
-    width: clamp(200px,25vw,400px);
+    max-width: clamp(300px,20vw,400px);
     border-radius: 20px;
     box-shadow: 0 4px 8px #ccc;
     display: flex;
@@ -2352,9 +2358,10 @@ video{
     .consNavComp{
         width: clamp(400px,55vw,600px);
     }
-    .consultation-container{
+    .consultation-page .consultation-container{
         height: 1500px;
     }
+   
 }
   .consGroup{
     display: flex;

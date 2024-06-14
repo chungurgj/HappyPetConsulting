@@ -49,21 +49,22 @@ const DateTmeSidebar = ({ dateandtime , refreshV,marg,refreshA ,type}) => {
         })
       }
 
-      const handleSelectSlot = (id,e,hour,minutes) =>{
-        e.preventDefault()
-        setSel(id)
-        console.log(`${hour}:${minutes}`)
-       
+      const handleSelectSlot = (id, e, hour, minutes) => {
+        e.preventDefault();
+        setSel(id);
+        
         const dateTime = new Date(
-            dateVideo.year,
-            dateVideo.month ,
-            dateVideo.day,
-            hour ,
-            minutes
-          )
-
-          dateandtime(dateTime)
-      }
+          dateVideo.year,
+          dateVideo.month,
+          dateVideo.day,
+          hour,
+          minutes
+        );
+      
+        // Convert to UTC
+        const utcDateTime = new Date(dateTime.getTime() - dateTime.getTimezoneOffset() * 60000);
+        dateandtime(utcDateTime);
+      };
 
   return (
     <div className='datetime-sidebar'>
@@ -71,6 +72,7 @@ const DateTmeSidebar = ({ dateandtime , refreshV,marg,refreshA ,type}) => {
          <input type="date" className='form-control' min={current} onChange={(e)=>handleDate(e)} />
       <div className='sidebar-time-slots'>
       {dateVideo.year && dateVideo.month && dateVideo.day ? 
+     
       <div className='slot-cont-side'>
         {(type === 'appointment' ? appointmentSlots : visitSlots)?.map((slot,index)=>{
           const date = new Date(slot.time)

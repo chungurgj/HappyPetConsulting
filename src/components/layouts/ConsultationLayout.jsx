@@ -7,6 +7,7 @@ import UserLeftSideComp from '../user/UserLeftSideComp'
 import ModalLoading from '../modals/ModalLoading'
 import '../style.css'
 import { HubConnectionBuilder, LogLevel } from '@microsoft/signalr'
+import { useLocation } from 'react-router-dom'
 const ConsultationLayout = () => {
   const [textAps, setTextAps] = useState([]);
   const [videoAps, setVideoAps] = useState([]);
@@ -52,8 +53,14 @@ const ConsultationLayout = () => {
     }
   }, [error]);
 
+  const currentPath = useLocation()
 
-
+  if(currentPath.pathname === '/consultation'){
+    document.body.classList.add('consultation-page')
+  }else{
+    document.body.classList.remove('consultation-page')
+  }
+  
   return (
     <div className='consultation-container '>
       <ModalLoading open={loading || loadingData}/> {/* Show loading indicator if loading or loadingData is true */}
