@@ -1207,6 +1207,7 @@
     flex-direction: row;
     justify-content: start;
     align-items: baseline;
+    
   }
   .ap-cont-text{
     display: flex;
@@ -1380,7 +1381,8 @@ option.redd{
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-top: 300px;
+   
+    min-height: 800px;
     font-family: 'manrope';
 }
 
@@ -2145,6 +2147,10 @@ option.redd{
     }
     
 }
+.zakazibtn{
+    width: 100%;
+    height: clamp(40px,7vw,50px);
+}   
 .temp{
     margin-top: 46px;
 }

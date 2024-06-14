@@ -3,13 +3,16 @@ import Arrow from '../../img/arrow.png'
 import axios from 'axios'
 import { useName } from '../../components/contexts/NameContext'
 import { Outlet, Route, useNavigate } from 'react-router-dom'
-
-
+import ModalAddPet from '../../components/modals/ModalAddPet'
+import { usePet } from '../../components/contexts/PetContext'
 const Emergency = () => {
   const [pets,setPets] = useState([])
   const [vets,setVets] = useState([])
 
-  const {id} = useName()
+  const [openModalAddPet,setOpenModalAddPet] = useState(false)
+
+  const {id,loggedIn,roles} = useName()
+  const {hasPet} = usePet()
 
   const navigate = useNavigate()
 
@@ -76,10 +79,18 @@ const Emergency = () => {
   },[])  
 
 
-
+  useEffect(()=>{
+    if(loggedIn && hasPet==false && roles=="User"){
+      setOpenModalAddPet(true)
+    }
+    else{
+      setOpenModalAddPet(false)
+    }
+  },[hasPet,loggedIn,roles])
 
   return (
       <div className='consultation-main'>
+        <ModalAddPet open={openModalAddPet} onClose={()=>setOpenModalAddPet(false)} noclose={true}/>
         <div className='video-form'> 
         <form >
           <h5>Закажување на онлајн видео преглед</h5>

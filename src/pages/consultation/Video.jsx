@@ -7,6 +7,9 @@ import DateTimeSidebar from '../../components/user/DateTimeSidebar'
 import { toast } from 'react-toastify'
 import ModalPayVideo from '../../components/modals/ModalPayVideo'
 
+import { usePet } from '../../components/contexts/PetContext'
+import ModalAddPet from '../../components/modals/ModalAddPet'
+
 const Video = () => {
   const [pets,setPets] = useState([])
   const [vets,setVets] = useState([])
@@ -17,13 +20,15 @@ const Video = () => {
   const [problemDes,setProblemDes] = useState('')
 
   const [openModalPay,setOpenModalPay] = useState(false)
+  const [openModalAddPet,setOpenModalAddPet] = useState(false)
 
   const {id} = useName()
 
   const navigate = useNavigate()
 
   const [refresh,setRefresh] = useState(false)
-
+  const {loggedIn,roles} = useName()
+  const {hasPet} = usePet()
   useEffect(()=>{
     axios.get(`https://localhost:7176/api/Pet/by-owner/${id}`)
       .then(response=>{
@@ -82,10 +87,20 @@ const Video = () => {
       })
 
   }
+
+  useEffect(()=>{
+    if(loggedIn && !hasPet && roles==='User'){
+      setOpenModalAddPet(true)
+    }else{
+      setOpenModalAddPet(false)
+    }
+  },[hasPet,loggedIn,roles])
+
   return (
       <div className='consultation-main'>
         <ModalPayVideo open={openModalPay} onClose={()=>setOpenModalPay(false)} type={2} pet={selectedPet} 
         vet={selectedVet} problemDes={problemDes} date={dateTime} price={600} refreshData={setRefresh} />
+        <ModalAddPet open={openModalAddPet} noclose={true}/>
         <div className='video-form'> 
         <form className='form-padding' onSubmit={(e)=>handleSubmit(e) }>
           <h5>Закажување на онлајн видео преглед</h5>
@@ -105,7 +120,7 @@ const Video = () => {
           </select>
           <small>*Овој ветеринар ќе ја одржи консултацијата доколку е во можност.</small>
           <textarea placeholder='Краток опис на проблемот' className='form-control textarea-problem' onChange={(e)=>handleProblemDes(e.target.value)}></textarea>
-          <button type='submit' className="btn btn-success mt-3" disabled={!selectedPet || !selectedVet || problemDes.length < 10 || !dateTime}>Закажи</button>
+          <button type='submit' className="btn btn-success mt-4 zakazibtn" disabled={!selectedPet || !selectedVet || problemDes.length < 10 || !dateTime}>Закажи</button>
         </form>
         </div>
        <DateTimeSidebar  dateandtime={setDateTime} marg={0} refreshA={refresh} type={'appointment'} />

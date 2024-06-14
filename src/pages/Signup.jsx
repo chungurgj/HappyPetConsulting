@@ -8,19 +8,29 @@ import { toast } from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css';
 import axios from 'axios'
 import validator from 'validator'
+import { useNavigate } from 'react-router-dom'
 
 const Signup = () => {
 
     const [email,setEmail]=useState('')
+    const [name,setName] = useState('')
     const [passwordCheck,setPasswordCheck]=useState('')
     const [passwordCheck2,setPasswordCheck2]=useState('')
     const [loading,setLoading] = useState(false)
 
     const data = {
+        name:name,
         email:email,
-        password:passwordCheck
+        password:passwordCheck,
+        
     }
    
+    const navigate = useNavigate()
+
+    const handleName = (e) =>{
+        setName(e.target.value)
+    }
+
     const handleEmail = (e) =>{
         setEmail(e.target.value)
     }
@@ -49,7 +59,7 @@ const Signup = () => {
                     toast.success("Успешно регистриран")
                     setTimeout(()=>{
                         setLoading(false)
-                        
+                        navigate('/login')
                     },1000)
                 })
                 .catch(error=>{
@@ -96,6 +106,9 @@ const Signup = () => {
                      <p>Вашето милениче ќе ви биде благодарно</p>
                 </div>
                 <form onSubmit={handleSubmit}>
+                <div className="input-group mb-3">
+                    <input onChange={(e)=>handleName(e)} type="text" className="form-control form-control-lg bg-light fs-6" placeholder="Име"/>
+                </div>
                 <div className="input-group mb-3">
                     <input onChange={(e)=>handleEmail(e)} type="text" className="form-control form-control-lg bg-light fs-6" placeholder="Емаил адреса"/>
                 </div>

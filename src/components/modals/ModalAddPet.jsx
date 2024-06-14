@@ -7,7 +7,7 @@ import 'react-toastify/dist/ReactToastify.css';
 import axios from "axios";
 import { useName } from "../contexts/NameContext";
 import { usePet } from "../contexts/PetContext";
-const ModalAddPet = ({ open, onClose }) => {
+const ModalAddPet = ({ open, onClose,noclose }) => {
   if (open)
     document.body.style.overflow = 'hidden';
   else
@@ -139,7 +139,7 @@ const ModalAddPet = ({ open, onClose }) => {
           <div className="modal-container">
             <div className="modal-header">
               <h5>Внеси милениче</h5>
-              <img onClick={onClose} src={Close} height={30} width={30} className='close-button' alt='close-button' />
+              {noclose === true ? <></> : <img onClick={onClose} src={Close} height={30} width={30} className='close-button' alt='close-button' />}
             </div>
             <div className="modal-main">
               <form className="form-container">    
@@ -155,7 +155,7 @@ const ModalAddPet = ({ open, onClose }) => {
               </form>
                 <button className="btn btn-success addPet-button"  disabled={disable} onClick={addForm}>Додади милениче</button>
               
-
+              { noclose === true ? <small>*За да продолжите понатаму мора да внесете милениче.</small> : <></>}
              
             </div>
           </div>

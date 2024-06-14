@@ -18,8 +18,10 @@ const UserLeftSideComp = ({apsArr,type}) => {
       
         axios.get(`https://localhost:7176/api/Consultation/text?today=true&done=false&consId=${cons}`)
           .then(response=>{
-            if(Array.isArray(response.data) && response.data.length > 0){
+            console.log(response.data)
+            if(response.data.length > 0){
               navigate(`/consultation/${navKey[type]}/chat/${cons}`)
+              console.log(cons)
             }
             
           })
