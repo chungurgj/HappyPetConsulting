@@ -69,7 +69,7 @@ const ConsultationLayout = () => {
         <div className='sidebar-padding'>
           <UserLeftSideComp apsArr={textAps} type={1} />
           <UserLeftSideComp apsArr={videoAps} type={2} />
-          <UserLeftSideComp apsArr={urgentAps} type={3} />
+          
         </div>
       </div>
     

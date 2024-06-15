@@ -7,6 +7,7 @@ import { Outlet } from 'react-router-dom'
 import ModalPayVideo from '../../components/modals/ModalPayVideo'
 import { usePet } from '../../components/contexts/PetContext'
 import ModalAddPet from '../../components/modals/ModalAddPet'
+import { useLocation } from 'react-router-dom'
 const Text = () => {
   const [payModal,setPayModal] = useState(false)
   const [openModalAddPet,setOpenModalAddPet] = useState(false)
@@ -22,6 +23,20 @@ const Text = () => {
   const [problemDes,setProblemDes] = useState('')
   const current = new Date()
 
+  const location = useLocation()
+  const isTextRoute = location.pathname === '/consultation/text'
+
+  useEffect(() => {
+    if (isTextRoute) {
+      document.body.classList.add('textcontainer')
+    } else {
+      document.body.classList.remove('textcontainer')
+    }
+    return () => {
+      document.body.classList.remove('textcontainer')
+    }
+  }, [isTextRoute])
+  
   useEffect(()=>{
     axios.get('https://localhost:7176/api/Pet')
       .then(response=>{
@@ -114,7 +129,7 @@ const Text = () => {
         </div>
         </div>
         <div className='text-sidebar-right'>
-          a
+          
         </div>
         </div>
       
