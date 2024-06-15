@@ -59,9 +59,7 @@ const VetVisit = () => {
   const handleSchedule = () =>{
     const current = new Date().toISOString()
     const date = new Date(dateTime)
-    date.setHours(date.getHours()+1)
 
-    
     if(chosenPet && chosenVet && dateTime){
       axios.post(`https://localhost:7176/api/VetVisit`,{
         pet_Id:chosenPet,
@@ -105,7 +103,9 @@ const VetVisit = () => {
   return (
     <div className='vetvisits-container '>
       <ModalAddPet open={openModalAddPet} onClose={()=>setOpenModalAddPet(false)} noclose={true}/>
-      <VetVisitSidebar/>
+       
+      <VetVisitSidebar refreshVisits={refresh}/>
+      <div className="main-sidebar">
       <div className="vetvisits-main">
         <div className='vetvisits-main-content'>
           <h5>Закажување на термин</h5>
@@ -128,9 +128,10 @@ const VetVisit = () => {
               <button className='btn btn-success zakazi mt-4' type='submit' onClick={handleSchedule}>Закажи </button>
           </form>
         </div>
+   
       </div>
-     
-    <DateTimeSidebar dateandtime={setDateTime} refreshV={refresh} marg={100} type={'vetvisit'}/>
+      <DateTimeSidebar dateandtime={setDateTime} refreshV={refresh} marg={100} type={'vetvisit'}/>
+    </div> 
     </div>
   )
 }
