@@ -26,7 +26,7 @@ const Admin = () => {
         datasets: [
           {
             label: "Users Gained",
-            data: UserData.map((data) => data.userGain),
+            data: userData?.map((data) => data.userGain),
             backgroundColor: [
               "rgba(75,192,192,1)",
               "#ecf0f1",

@@ -22,6 +22,11 @@ const ModalStartVideo = ({open,onClose,selectedVideo,newDate}) => {
 
     const navigate = useNavigate()
 
+    useEffect(()=>{
+      console.log(newDate)
+      
+    },[newDate])
+
     useEffect(() => {
     const connection = new HubConnectionBuilder()
         .withUrl(`https://localhost:7176/notify?userId=${id}`)
@@ -59,7 +64,7 @@ const ModalStartVideo = ({open,onClose,selectedVideo,newDate}) => {
       if(selectedVideo){
         axios.get(`https://localhost:7176/api/Consultation/consultation/${selectedVideo}`)
             .then(response=>{
-                console.log(response.data)
+                console.log("a",response.data)
                 setConsData(response.data)
 
                 const datetime = new Date(response.data.consultationStart)
@@ -128,17 +133,15 @@ useEffect(()=>{
                 <h5>Ваша консултација</h5>
                 <img onClick={onClose} src={Close} height={30} width={30} className='close-button' alt='close-button' />    
             </div>
-            <div className='modal-main move-down'>
+            <div className='modal-main '>
              {consData && <div>
               <p>Милениче: {consData.pet_Name}</p>
               <p>Закажан за: {date} <strong>{time}</strong></p>
               <p>Закажан на: {createdDate} <strong>{createdTime}</strong></p>
-              <div className='btnstart-sep'>
+              <p className='desModalStartVideo'><strong>Опис:</strong> {consData.des}</p>
               <hr />
-              <button className='btn btn-success startvideo-btn' onClick={()=>startVideoCons()} disabled={btnDisabled}>Започни </button>
-              
-              <small>*Можете да започнете само кога ќе дојде вашиот термин.</small>
-              </div>
+              <p className='modalStartVideoText'><strong>{consData.vet_Name}</strong> ќе ја започне консултацијата во времето на терминот.</p>
+            
           </div>}
             </div>
           </div>

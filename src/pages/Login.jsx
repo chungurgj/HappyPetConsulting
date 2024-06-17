@@ -43,11 +43,11 @@ const Login = () => {
         const token = response.data.jwtToken;
         localStorage.setItem('token', token);
         toast.success("Успешно се логиравте");
-        
+        var userRole 
         axios.get(`https://localhost:7176/api/Auth/user-role/${response.data.id}`)
             .then(response=>{
                 addRole(response.data)
-                
+                userRole = response.data
             })
             .catch(error=>{
                 console.error(error)
@@ -55,7 +55,8 @@ const Login = () => {
         setTimeout(() => {
             
             isLoggedIn(true, response.data.id, response.data.email,response.data.displayName);
-            location.pathname = '/';
+            {userRole && userRole == 'Vet' ? location.pathname='/vet/visits' : location.pathname='/'}
+        
             console.log("ful ",response.data);
         },1000)
     })

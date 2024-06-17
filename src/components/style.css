@@ -482,7 +482,7 @@
     padding: 40px 50px;
     border-radius: 15px;
     background-color: ghostwhite;
-
+    max-height: 450px;
     @media (max-width:1260px){
         width: 40%;
     }
@@ -2418,4 +2418,16 @@ video{
   .btnConsNav{
     width: 100%;
     margin-top: 20px;
+  }
+
+  .modalStartVideoText{
+    background-color: green;
+    color: white;
+    padding: clamp(5px,4vw,15px);
+    border-radius: 10px ;
+  }
+
+  .desModalStartVideo{
+    max-height: 100px;
+    overflow-y: auto;
   }
