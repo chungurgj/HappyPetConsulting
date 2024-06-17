@@ -5,20 +5,38 @@ import ModalPay from '../../components/modals/ModalPay'
 import {toast} from 'react-toastify'
 import { Outlet } from 'react-router-dom'
 import ModalPayVideo from '../../components/modals/ModalPayVideo'
-
+import { usePet } from '../../components/contexts/PetContext'
+import ModalAddPet from '../../components/modals/ModalAddPet'
+import { useLocation } from 'react-router-dom'
 const Text = () => {
   const [payModal,setPayModal] = useState(false)
+  const [openModalAddPet,setOpenModalAddPet] = useState(false)
 
   const [pets,setPets] = useState([])
   const [vets,setVets] = useState([])
 
-  const {id} = useName()
+  const {id,loggedIn,roles} = useName()
+  const {hasPet} = usePet()
 
   const [selectedPetId,setSelectedPetId] = useState('')
   const [selectedVetId,setSelectedVetId] = useState('')
   const [problemDes,setProblemDes] = useState('')
   const current = new Date()
 
+  const location = useLocation()
+  const isTextRoute = location.pathname === '/consultation/text'
+
+  useEffect(() => {
+    if (isTextRoute) {
+      document.body.classList.add('textcontainer')
+    } else {
+      document.body.classList.remove('textcontainer')
+    }
+    return () => {
+      document.body.classList.remove('textcontainer')
+    }
+  }, [isTextRoute])
+  
   useEffect(()=>{
     axios.get('https://localhost:7176/api/Pet')
       .then(response=>{
@@ -69,8 +87,19 @@ const Text = () => {
 
     
   }
+
+  useEffect(()=>{
+    if(loggedIn && hasPet==false && roles=="User"){
+      setOpenModalAddPet(true)
+    }
+    else{
+      setOpenModalAddPet(false)
+    }
+  },[hasPet,loggedIn,roles])
+
   return (
       <div className='consultation-main temp'>
+        <ModalAddPet open={openModalAddPet} onClose={()=>setOpenModalAddPet(false)} noclose={true}/>
         <ModalPayVideo open={payModal} onClose={()=>setPayModal(false)} price={300} vet={selectedVetId} 
           pet={selectedPetId} type={1} created={current.toISOString()} problemDes={problemDes} mydate={current}/>
         <div className='text-form'>
@@ -100,7 +129,7 @@ const Text = () => {
         </div>
         </div>
         <div className='text-sidebar-right'>
-          a
+          
         </div>
         </div>
       

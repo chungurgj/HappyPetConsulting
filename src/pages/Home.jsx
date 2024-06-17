@@ -26,7 +26,7 @@ const Home = () => {
     else{
       setOpenModalAddPet(false)
     }
-  },[hasPet])
+  },[hasPet,loggedIn,roles])
   
   
   return (

@@ -23,7 +23,7 @@ import VetVisitsPage from './pages/VetVisitsPage.jsx';
 import VetConsultations from './pages/VetConsultations.jsx';
 import MedicalEvidence from './pages/MedicalEvidence.jsx';
 import Video from './pages/consultation/Video.jsx';
-import Emergency from './pages/consultation/Emergency.jsx';
+
 import Text from './pages/consultation/Text.jsx';
 import TextCons from './pages/consPages/TextCons.jsx';
 import ConsultationLayout from './components/layouts/ConsultationLayout.jsx';
@@ -74,7 +74,7 @@ const Main = () => {
                   <Route path='chat' element={<VideoCons/>}/>
                   </Route>
                 </Route>
-                <Route path='emergency' element={<Emergency/>}/>
+
                 <Route path='text'>
                   <Route index element={<Text/>} />
                   <Route path='chat/:consId' element={<TextCons/>} />   
@@ -118,7 +118,7 @@ const Main = () => {
           <Route path='/loading' element={<Loading/>}/>
         </Routes>
 
-      {(!currentPath.pathname.startsWith('/login') && !currentPath.pathname.startsWith('/signup') && !currentPath.pathname.startsWith('/vet')) && <Footer/>}
+      {(!currentPath.pathname.startsWith('/login') && !currentPath.pathname.startsWith('/signup') && !currentPath.pathname.startsWith('/vet/')) && <Footer/>}
        
         </ChatProvider>
         </ConsProvider>

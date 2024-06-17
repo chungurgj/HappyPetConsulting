@@ -10,7 +10,7 @@ import {toast} from 'react-toastify';
 import ConsRightSidebar from '../../components/user/ConsRightSidebar';
 import { HubConnectionBuilder, LogLevel } from '@microsoft/signalr';
 import { useOutletContext } from 'react-router-dom';
-
+import { useLocation, matchPath} from 'react-router-dom';
 const TextCons = () => {
   const [connection,setConnection] = useState('')
   const { name, email } = useName();
@@ -21,6 +21,8 @@ const TextCons = () => {
   const [vet,setVet] = useState('')
   const navigate = useNavigate();
   const [refresh,setRefresh] = useOutletContext()
+
+  const location = useLocation()
 
   useEffect(()=>{
     console.log(connection)
@@ -176,9 +178,19 @@ const TextCons = () => {
     }
   },[connection,name,email,consId,roomJoined,vet])
 
-  useEffect(()=>{
-    console.log(vet)
-  },[vet])
+  const isTextRoute = matchPath('/consultation/text/chat/:id',location.pathname)
+
+  useEffect(() => {
+    if (isTextRoute) {
+      document.body.classList.add('textcons')
+    } else {
+      document.body.classList.remove('textcons')
+    }
+    return () => {
+      document.body.classList.remove('textcons')
+    }
+  }, [isTextRoute,location.pathname])
+
   return (
     <div className='consultation-main temp2'>
       <ModalLoading open={loading}  /> 
