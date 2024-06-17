@@ -4,22 +4,32 @@ import { fixMinutes } from '../services/TimeService'
 import { useNavigate } from 'react-router-dom'
 import {toast} from 'react-toastify'
 import axios from 'axios'
+import ModalStartVideo from '../modals/ModalStartVideo'
+
 const UserLeftSideComp = ({apsArr,type}) => {
     const [apData,setApData] = useState([])
     const [open,setOpen] = useState(true)
     const navigate = useNavigate()
+
+    const [selectedCons,setSelectedCons] = useState('')
+    const [modalStartOpen,setModalStartOpen] = useState(false)
+    const [nowDate,setNowDate] = useState()
 
     useEffect(()=>{
         setApData(apsArr)
     },[apsArr])
     
     const handleSelect = (cons) =>{
-        // selectedCons(cons)
-      
+        setSelectedCons(cons)
+        const date = new Date()
+        setNowDate(date)
+        setModalStartOpen(true)
         axios.get(`https://localhost:7176/api/Consultation/text?today=true&done=false&consId=${cons}`)
           .then(response=>{
-            if(Array.isArray(response.data) && response.data.length > 0){
+            console.log(response.data)
+            if(response.data.length > 0){
               navigate(`/consultation/${navKey[type]}/chat/${cons}`)
+              console.log(cons)
             }
             
           })
@@ -27,6 +37,8 @@ const UserLeftSideComp = ({apsArr,type}) => {
   
             toast.error("Оваа консултација не постои")
           })
+
+  
     }
     const navKey = {
       1:'text',
@@ -41,6 +53,7 @@ const UserLeftSideComp = ({apsArr,type}) => {
   return (
     <>
     <div className='horizontal'>
+    <ModalStartVideo open={modalStartOpen} onClose={() => setModalStartOpen(false)} selectedVideo={selectedCons} newDate={nowDate} />
               <h6>{consType[type]}</h6>
               <img src={Arrow} height={17} width={17} className='arrow-image' onClick={()=>setOpen(!open)}/>
             </div>

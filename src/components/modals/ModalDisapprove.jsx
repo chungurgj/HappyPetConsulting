@@ -2,6 +2,7 @@ import axios from 'axios'
 import React, { useEffect, useState } from 'react'
 import ReactDOM from 'react-dom'
 import { toast } from 'react-toastify'
+import Close from '../../img/close.png'
 
 const ModalDisapprove = ({open,onClose,vetVisitId,onSubmitReason}) => {
     const [reason,setReason] = useState('')
@@ -40,7 +41,7 @@ const ModalDisapprove = ({open,onClose,vetVisitId,onSubmitReason}) => {
           <div className='modal-container'>
             <div className='modal-container-header'>
               <h5 className='modal-header'>Одбивање на преглед</h5>
-             
+              <img onClick={onClose} src={Close} height={30} width={30} className='close-button' alt='close-button' />
             </div>
             <div className='modal-main'>
                 <form >

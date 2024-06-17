@@ -8,6 +8,7 @@ import ModalLoading from '../modals/ModalLoading'
 import '../style.css'
 import { HubConnectionBuilder, LogLevel } from '@microsoft/signalr'
 import { useLocation } from 'react-router-dom'
+
 const ConsultationLayout = () => {
   const [textAps, setTextAps] = useState([]);
   const [videoAps, setVideoAps] = useState([]);
@@ -19,7 +20,7 @@ const ConsultationLayout = () => {
   const [loadingData, setLoadingData] = useState(true);
 
   const [refresh, setRefresh] = useState(false);
-  
+
   const fetchConsultations = async () => {
     setLoadingData(true); // Set loadingData to true before making API calls
 
@@ -64,12 +65,12 @@ const ConsultationLayout = () => {
   return (
     <div className='consultation-container '>
       <ModalLoading open={loading || loadingData}/> {/* Show loading indicator if loading or loadingData is true */}
-      {/* <ModalStartVideo open={modalStartOpen} onClose={() => setModalStartOpen(false)} selectedVideo={selectedConsultation} newDate={nowDate} /> */}
+     
       <div className='consultation-sidebar temp'>
         <div className='sidebar-padding'>
           <UserLeftSideComp apsArr={textAps} type={1} />
           <UserLeftSideComp apsArr={videoAps} type={2} />
-          <UserLeftSideComp apsArr={urgentAps} type={3} />
+          
         </div>
       </div>
     

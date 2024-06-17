@@ -320,20 +320,26 @@
     background-size: cover;
     background-position: center;
     height: 100vh;
-    
+    overflow-y: hidden;
 }
 .login{
-    height: 100vh;
+    min-height: 910px;
+    height: 100%;
     width: 600px;
     background: ghostwhite;
     display: flex;
     flex-direction: column;
-    justify-content: left;
-    padding: 120px 110px;
+    justify-content: start;
+    
+    padding: clamp(150px,5vw,250px) clamp(40px,5vw,110px);
     color: white;
     font-family: 'Manrope';
     font-size: 20px;
     color: black;
+    
+    @media (max-width:400px) {
+        justify-content: center;
+    }
 }
 
 
@@ -401,7 +407,7 @@
     width: 600px;
     background-color: ghostwhite;
     justify-content: left;
-    padding: 80px 110px;
+    padding: clamp(150px,5vw,250px) clamp(40px,5vw,110px);
     color: white;
     font-family: 'Manrope';
     font-size: 20px;
@@ -476,7 +482,7 @@
     padding: 40px 50px;
     border-radius: 15px;
     background-color: ghostwhite;
-
+    max-height: 450px;
     @media (max-width:1260px){
         width: 40%;
     }
@@ -1207,6 +1213,7 @@
     flex-direction: row;
     justify-content: start;
     align-items: baseline;
+    
   }
   .ap-cont-text{
     display: flex;
@@ -1242,11 +1249,6 @@
 
     
   }
-  
-
-  
-
-  
 
   .align-consult{
     display: flex;
@@ -1264,10 +1266,23 @@
 
   .vetvisits-container{
     display: flex;
-    height: 100vh;
+    min-height: 900px;
     font-family: 'Manrope';
+    
+    @media (max-width:700px) {
+        flex-direction: column;
+    }
   }
-
+  .main-sidebar{
+    display: flex;
+    flex: 8;
+  }
+  @media (max-width:1200px){
+    .main-sidebar{
+        flex-direction: column;
+    }
+    
+}
   .vetvisits-left-sidebar{
     flex: 2;
     background-color: ghostwhite;
@@ -1275,15 +1290,10 @@
     
   }
   .vetvisits-main{
-    flex: 5.5;
+    flex: 4.5;
     background-color: white;
 
   }
-  .vetvisits-right-sidebar{
-    flex: 2.5;
-    background-color: #4b5c69;
-  }
-
   .vetvisits-left-content{
     padding: 30px 50px;
     margin-top: 100px;
@@ -1339,7 +1349,7 @@
 }
 
 .vetvisits-main-content{
-    padding: 200px;
+    padding: clamp(180px,25vw,200px) clamp(50px,8vw,200px);
     height: 100%;
     width: 100%;
     
@@ -1380,7 +1390,8 @@ option.redd{
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-top: 300px;
+   
+    min-height: 800px;
     font-family: 'manrope';
 }
 
@@ -1659,7 +1670,7 @@ option.redd{
     display: flex;
     flex-direction: column;
     width: 100%;
-    padding: 30px 60px;
+    padding: clamp(30px,7vw,45px) clamp(30px,10vw,70px);
 }
 .message{
     border-radius: 5px;
@@ -1728,11 +1739,21 @@ option.redd{
     font-family: 'Manrope';
     margin-top: 46px;
     
-    @media (max-width:580px) {
+   
+}
+@media (max-width:580px) {
+    .consultation-container{
         flex-direction: column;
         min-height: 2000px;
     }
+    .textcontainer .consultation-container{
+        min-height: 1000px;
+    }
+    .textcons .consultation-container{
+        min-height: 1400px;
+    }
 }
+
 .consultation-sidebar{
     flex: 2;
     background-color: ghostwhite;  
@@ -1751,7 +1772,7 @@ option.redd{
 }
 
 .sidebar-padding{
-    padding: 20px 30px;
+    padding: clamp(20px,10vw,40px) clamp(15px,6vw,30px);
 }
 .cons-nav-main{
     flex: 8;
@@ -1857,7 +1878,7 @@ option.redd{
     align-items: end;
     width: 100%;
     border-radius: 30px;
-    /* padding: 50px 20px; */
+    
 }
 
 .details-cont{
@@ -1877,6 +1898,8 @@ option.redd{
 .main-bold{
     margin: 0;
     font-weight: bolder;
+    font-size: clamp(10px,5vw,18px);
+    
 }
 .owner-name-email{
     display: flex;
@@ -1928,10 +1951,10 @@ option.redd{
 }
 .user-detail-container{
     width: 100%;
-    height: 300px;
+    min-height: 300px;
     background-color: white;
     border-radius: 15px;
-    padding: 40px 50px;
+    padding: clamp(30px,7vw,40px) clamp(15px,10vw,40px);
 }
 .leave-room{
     display: flex;
@@ -1947,7 +1970,7 @@ option.redd{
 .datetime-sidebar {
     background-color: #343a40;
     flex: 2.5;
-
+    min-height: 300px;
     @media (max-width:800px){
         flex: 1;
     }
@@ -1966,19 +1989,21 @@ option.redd{
 .form-padding{
     padding: clamp(50px,15vw,150px) clamp(40px,10vw,200px);
 }
-.datetime-sidebar-content{
+.datetime-sidebar-content {
     width: 100%;
     height: 100%;
     padding: clamp(15px,4vw,50px) clamp(25px,5vw,80px);
     display: flex; /* Prevent sidebar from expanding */
     flex-direction: column; /* Stack children vertically */
     margin-top: 50px;
-
-   
 }
- .marg{
+
+.marg{
     margin-top: 100px;
-    
+
+    @media (max-width:1200px) {
+        margin-top: 0px;
+    }
 }
 
 .sidebar-time-slots{
@@ -2126,10 +2151,13 @@ option.redd{
     flex: 2.5;
     background-color: #343a40;
 
+    @media (max-width:900px) {
+        display: none;
+    }
 }
 
 .text-form{
-    flex: 5;
+    flex: 7;
     display: flex;
 }
 
@@ -2145,11 +2173,25 @@ option.redd{
     }
     
 }
+
+.textcons .consultation-main{
+    @media (max-width:1000px){
+        flex-direction: column;
+    }
+}
+.zakazibtn{
+    width: 100%;
+    height: clamp(40px,7vw,50px);
+}   
 .temp{
     margin-top: 46px;
 }
 .temp2{
     margin-top: 51px;
+
+   @media (max-width:580px){
+    margin-top: 0;
+   }
 }
 .consultation-videochat{
    width: 100%;
@@ -2161,7 +2203,7 @@ option.redd{
 .text-form-content{
     width: 100%;
     height: 100%;
-    padding: 100px 200px;
+    padding: clamp(50px,15vw,150px) clamp(40px,10vw,200px);
 }
  
 video{
@@ -2310,7 +2352,7 @@ video{
   .ge{
     display: flex;
     flex-direction: column;
-    width: 130px;
+    max-width: 130px;
   }
 
   .testpage{
@@ -2376,4 +2418,16 @@ video{
   .btnConsNav{
     width: 100%;
     margin-top: 20px;
+  }
+
+  .modalStartVideoText{
+    background-color: green;
+    color: white;
+    padding: clamp(5px,4vw,15px);
+    border-radius: 10px ;
+  }
+
+  .desModalStartVideo{
+    max-height: 100px;
+    overflow-y: auto;
   }
