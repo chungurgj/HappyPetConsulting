@@ -102,7 +102,7 @@
 }
 .signupcolor{
     background-color: #bd494a;
-    margin: 20px;
+    margin: clamp(10px,2vw,20px);
 }
 .imgg{
     width: 100%;
@@ -813,6 +813,7 @@
 .text-black{
     color: black;
 }
+
 .close-button{
     transition: transfrom 0.5s ease-in-out;
     
@@ -2431,3 +2432,13 @@ video{
     max-height: 100px;
     overflow-y: auto;
   }
+  .navchange{
+    font-size: clamp(10px,1vw,15px);
+    
+  }
+  .nav-signup{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  

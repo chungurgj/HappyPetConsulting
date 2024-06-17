@@ -221,9 +221,9 @@ const Navbar = () => {
                       )}
                   </div>
                 ) : (
-                  <div>
-                      <a href='/login' className='text-black'>Најави се</a>
-                      <a href='/signup' className='text-white text-decoration-none px-3 py-2 rounded-4 signupcolor'>Регистрирај се</a>
+                  <div className='nav-signup'>
+                      <a href='/login' className='text-black navchange'>Најави се</a>
+                      <a href='/signup' className='text-white text-decoration-none px-3 py-2 rounded-4 signupcolor navchange'>Регистрирај се</a>
                   </div>
                 )}
                 
