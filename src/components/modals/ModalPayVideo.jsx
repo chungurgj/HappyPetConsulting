@@ -25,6 +25,7 @@ const ModalPayVideo = ({open,onClose,price,vet,pet,problemDes,date,type,refreshD
 
     const submitPay = () =>{
       setDisabled(true)
+      onClose()
     axios.post('https://localhost:7176/api/Consultation',{
       pet_Id:pet,
       vet_Id:vet,

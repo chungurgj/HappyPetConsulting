@@ -23,7 +23,8 @@ const UserLeftSideComp = ({apsArr,type}) => {
         setSelectedCons(cons)
         const date = new Date()
         setNowDate(date)
-        setModalStartOpen(true)
+        if(type === 2)
+          setModalStartOpen(true)
         axios.get(`https://localhost:7176/api/Consultation/text?today=true&done=false&consId=${cons}`)
           .then(response=>{
             console.log(response.data)
