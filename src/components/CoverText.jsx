@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from 'react';
 
 const lines = [
-    "Пристап до искусни ",
-    "ветеринари, за неколку минути."
+    "Секогаш тука за вашето милениче. ",
+    
 ];
 
 const CoverText = () => {
