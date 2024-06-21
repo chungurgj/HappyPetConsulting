@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from 'react';
 
 const lines = [
-    "Секогаш тука за вашето милениче. ",
-    
+    "Секогаш тука за ",
+    "вашето милениче."
 ];
 
 const CoverText = () => {
@@ -20,6 +20,7 @@ const CoverText = () => {
                     setDisplayText('');
                 }, 3000); // Pause for 5 seconds
             } else if (currentCharIndex === lines[currentLineIndex].length) {
+                setDisplayText(prev => prev + '\n'); // Add a newline character
                 setCurrentLineIndex(currentLineIndex + 1);
                 setCurrentCharIndex(0);
             } else {

@@ -36,11 +36,12 @@ const TodayAllCons = () => {
 
 
   return (
-    <div className='consultation-main'>
-      <div className="consultation-chat position">
+    <div className='todaysConsultationMain'>
+      {/* <div className="consultation-chat position">
         <h3>Нема закажани консултации во текот на денешниот ден!</h3>
        
-      </div>
+      </div> */}
+       <h3>Нема закажани консултации во текот на денешниот ден!</h3>
     </div>
   )
 }

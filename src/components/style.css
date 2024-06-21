@@ -11,7 +11,10 @@
     padding-top: 96px;
 }
 
-
+.appContainer{
+    display: flex;
+    flex-direction: column;
+}
 .coverImg {
     background-image: url("../img/vbg.jpg");
     background-size: cover; /* This ensures the image covers the entire element */
@@ -41,7 +44,7 @@
     display: flex;
     justify-content: center;
     align-items: flex-start;
-
+    font-family: 'Montserrat';
     text-align: start;
     flex-direction: column;
     width: fit-content;
@@ -120,15 +123,11 @@
     display: inline-block;
     overflow-wrap: break-word; /* Allow text to wrap within words */
     word-wrap: break-word; /* Fallback for older browsers */
-    width: clamp(220px,35vw,650px); /* Set the maximum width of the container */
+    width: clamp(220px,35vw,550px); /* Set the maximum width of the container */
     font-size: clamp(25px,4vw,55px);
     min-height: clamp(100px,7vw,200px);
-    
+    white-space: pre-line;
 }
-
-
-
-
 
 @media (max-width: 650px) {
     .typing-animation {
@@ -146,7 +145,7 @@
 }
 
 .myfont{
-    font-family: 'Manrope';
+    font-family: 'Montserrat';
     font-size: 16px;
 }
 .signupcolor{
@@ -186,7 +185,7 @@
     backdrop-filter: blur(8.8px);
     -webkit-backdrop-filter: blur(8.8px);
     transition: transform 0.3s ease-in-out;
-    font-family: 'Manrope';
+    font-family: 'Montserrat';
     
 }
 .box:hover{
@@ -228,12 +227,12 @@
     width: clamp(250px,20vw,350px);
 }
 .group-text{
-    font-family: 'Manrope';
+    font-family: 'Montserrat';
     font-size: 25px;
     margin: 50px;
 }
 .impact{
-    font-family: 'Manrope';
+    font-family: 'Montserrat';
 }
 .group-btn{
     background-color: #4b5c69;
@@ -273,7 +272,7 @@
     
 }
 .counter-header{
-    font-family: 'Manrope';
+    font-family: 'Montserrat';
     margin-right: 15px;
     
 }
@@ -346,7 +345,7 @@
 }
 
 .footerlist{
-    font-family: 'Manrope';
+    font-family: 'Montserrat';
     color: #adb5bd; 
     text-decoration: underline;
 }
@@ -389,7 +388,7 @@
     
     padding: clamp(150px,5vw,250px) clamp(40px,5vw,110px);
     color: white;
-    font-family: 'Manrope';
+    font-family: 'Montserrat';
     font-size: 20px;
     color: black;
     
@@ -410,7 +409,7 @@
     flex-direction: row;
     justify-content: flex-start;
     flex-wrap: wrap;
-    font-family: 'Manrope';
+    font-family: 'Montserrat';
     max-height: 400px;
 
     
@@ -465,7 +464,7 @@
     justify-content: left;
     padding: clamp(150px,5vw,250px) clamp(40px,5vw,110px);
     color: white;
-    font-family: 'Manrope';
+    font-family: 'Montserrat';
     font-size: 20px;
     color: black;
 }
@@ -489,7 +488,7 @@
 .shopSidebar{
     flex: 1;
     background-color: ghostwhite;
-    font-family: 'Manrope';
+    font-family: 'Montserrat';
  
     
     
@@ -652,7 +651,7 @@
 }
 .sidebar-list a{
     list-style: none;
-    font-family: 'Manrope';
+    font-family: 'Montserrat';
     font-size: clamp(12px,3vw,15px);
     text-decoration: none;
     color: black;
@@ -863,7 +862,7 @@
     border-radius: 30px;
     display: flex;
     flex-direction: column;
-    font-family: 'Manrope';
+    font-family: 'Montserrat';
 }
 
 .text-black{
@@ -1324,7 +1323,7 @@
   .vetvisits-container{
     display: flex;
     min-height: 900px;
-    font-family: 'Manrope';
+    font-family: 'Montserrat';
     
     @media (max-width:700px) {
         flex-direction: column;
@@ -1449,12 +1448,12 @@ option.redd{
     align-items: center;
    
     min-height: 800px;
-    font-family: 'manrope';
+    font-family: 'Montserrat';
 }
 
 .vet-container{
-    margin-top: 50px;
-    font-family: 'manrope';
+   
+    font-family: 'Montserrat';
     display: flex;
     justify-content: center;
     flex-direction: column;
@@ -1793,7 +1792,7 @@ option.redd{
     display: flex;
     width: 100%;
     min-height: 900px;
-    font-family: 'Manrope';
+    font-family: 'Montserrat';
     margin-top: 46px;
     
    
@@ -2172,7 +2171,7 @@ option.redd{
     margin-top: 95px;
     height: 100%;
     width: 100%;
-    font-family: 'Manrope';
+    font-family: 'Montserrat';
 }
 .admin-navbar{
     width: 100%;
@@ -2497,4 +2496,20 @@ video{
     justify-content: center;
     align-items: center;
   }
-  
+  .todaysConsultationContainer{
+    display: flex;
+    height: 100vh;
+
+  }
+  .todaysConsultationSidebar{
+    flex: 2;
+    background-color: ghostwhite;
+    border: 1px solid red;
+  }
+  .todaysConsultationMain{
+    flex: 8;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid red;
+  }

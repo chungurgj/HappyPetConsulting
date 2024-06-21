@@ -52,17 +52,23 @@ const TodaysConsultationLayout = () => {
   }, [error]);
 
   return (
-    <div className='consultation-container '>
-      <ModalLoading open={loading || loadingData}/> 
-      {/* <ModalStartVideo open={modalStartOpen} onClose={() => setModalStartOpen(false)} selectedVideo={selectedConsultation} newDate={nowDate} /> */}
-      <div className='consultation-sidebar'>
-        <div className='sidebar-padding'>
-          <VetLeftSideComp apsArr={textAps} type={1} />
-          <VetLeftSideComp apsArr={videoAps} type={2} />
-          <VetLeftSideComp apsArr={urgentAps} type={3} />
-        </div>
+    // <div className='consultation-container '>
+    //   <ModalLoading open={loading || loadingData}/> 
+    //   <ModalStartVideo open={modalStartOpen} onClose={() => setModalStartOpen(false)} selectedVideo={selectedConsultation} newDate={nowDate} />
+    //   <div className='consultation-sidebar'>
+    //     <div className='sidebar-padding'>
+    //       <VetLeftSideComp apsArr={textAps} type={1} />
+    //       <VetLeftSideComp apsArr={videoAps} type={2} />
+    //       <VetLeftSideComp apsArr={urgentAps} type={3} />
+    //     </div>
+    //   </div>
+    //   <Outlet />
+    // </div>
+    <div className='todaysConsultationContainer'>
+      <div className="todaysConsultationSidebar">
+        a
       </div>
-      <Outlet />
+      <Outlet/>
     </div>
   );
 };

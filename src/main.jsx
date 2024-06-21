@@ -56,6 +56,7 @@ const Main = () => {
         <ConsProvider>
           <ChatProvider>
         <ToastContainer autoClose={400}/>
+        <div className="appContainer">
         {(currentPath.pathname !== '/login' && currentPath.pathname !== '/signup' &&  !currentPath.pathname.startsWith('/test') && currentPath.pathname !== '/vet' && currentPath.pathname !== '/loading') && <Navbar/>}
 
         <Routes>
@@ -119,7 +120,7 @@ const Main = () => {
         </Routes>
 
       {(!currentPath.pathname.startsWith('/login') && !currentPath.pathname.startsWith('/signup') && !currentPath.pathname.startsWith('/vet/')) && <Footer/>}
-       
+      </div>
         </ChatProvider>
         </ConsProvider>
       </PetProvider>
