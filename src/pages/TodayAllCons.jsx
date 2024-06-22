@@ -1,47 +1,63 @@
 import React from 'react'
 import { useEffect, useState } from 'react'
+import axios from 'axios';
+import { useName } from '../components/contexts/NameContext';
+const TodayAllCons = ({refresh}) => {
+  const [textAps, setTextAps] = useState([]);
+  const [videoAps, setVideoAps] = useState([]);
+  const [loadingData,setLoadingData] = useState(true)
+  const {id} = useName()
 
-const TodayAllCons = () => {
-  // const [textAps, setTextAps] = useState([]);
-  // const [videoAps, setVideoAps] = useState([]);
-  // const [urgentAps, setUrgentAps] = useState([]);
-  // const [loadingData,setLoadingData] = useState(true)
-  
-  // const fetchConsultations = async () => {
-  //   setLoadingData(true); // Set loadingData to true before making API calls
+  const fetchConsultations = async () => {
+    setLoadingData(true); // Set loadingData to true before making API calls
 
-  //   const requests = [
-  //     axios.get(`https://localhost:7176/api/Consultation/video?id=${id}&done=false`),
-  //     axios.get(`https://localhost:7176/api/Consultation/text?id=${id}&done=false`),
-  //     axios.get(`https://localhost:7176/api/Consultation/emergency?${id}=2&done=false`)
-  //   ];
+    const requests = [
+      axios.get(`https://localhost:7176/api/Consultation/video?id=${id}&done=false`),
+      axios.get(`https://localhost:7176/api/Consultation/text?id=${id}&done=false`)
+    ];
 
-  //   try {
-  //     const [videoResponse, textResponse, urgentResponse] = await Promise.all(requests);
+    try {
+      const [videoResponse, textResponse] = await Promise.all(requests);
+      setVideoAps(videoResponse.data.sort((a, b) => new Date(a.consultationStart) - new Date(b.consultationStart)));
+      setTextAps(textResponse.data.sort((a, b) => new Date(a.consultationStart) - new Date(b.consultationStart)));
+    
+    } catch (error) {
+      console.error(error);
       
-  //     setVideoAps(videoResponse.data.sort((a, b) => new Date(a.consultationStart) - new Date(b.consultationStart)));
-  //     setTextAps(textResponse.data.sort((a, b) => new Date(a.consultationStart) - new Date(b.consultationStart)));
-  //     setUrgentAps(urgentResponse.data.sort((a, b) => new Date(a.consultationStart) - new Date(b.consultationStart)));
-  //   } catch (error) {
-  //     console.error(error);
-  //     setError(true);
-  //   } finally {
-  //     setLoadingData(false); // Set loadingData to false after all API calls complete
-  //   }
-  // };
+    } finally {
+      setLoadingData(false); 
+    }
+  };
 
-  // useEffect(() => {
-  //   fetchConsultations();
-  // }, [refresh]);
+  useEffect(() => {
+    fetchConsultations();
+  }, [refresh]);
 
-
+  useEffect(()=>{
+    console.log(videoAps)
+  },[videoAps])
   return (
-    <div className='todaysConsultationMain'>
-      {/* <div className="consultation-chat position">
-        <h3>Нема закажани консултации во текот на денешниот ден!</h3>
+    <div className='todaysContainer'>
+      
+      <div className="todaysComponent">
+        <h5>Видео консултации</h5>
+        <div className="apComponentContainer">
+        {videoAps.length > 0 ? (
+          videoAps.map(ap => (
+          <div className='apComponent'>
+            <p>{ap.pet_Name}</p>
+        
+            </div>
+        ))
+        
+        ) : (
+          <p>Loading...</p>
+        )}
        
-      </div> */}
-       <h3>Нема закажани консултации во текот на денешниот ден!</h3>
+        </div>
+      </div>
+      <div className="todaysComponent">s</div>
+      
     </div>
   )
 }

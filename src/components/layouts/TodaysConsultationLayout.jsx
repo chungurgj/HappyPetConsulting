@@ -65,9 +65,7 @@ const TodaysConsultationLayout = () => {
     //   <Outlet />
     // </div>
     <div className='todaysConsultationContainer'>
-      <div className="todaysConsultationSidebar">
-        a
-      </div>
+      
       <Outlet/>
     </div>
   );

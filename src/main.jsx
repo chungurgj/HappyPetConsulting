@@ -96,17 +96,13 @@ const Main = () => {
                 <Route index element={<VetVisitsPage/>}/>
                 <Route path='pets' element={<MedicalEvidence/>}/>
               </Route>
-              <Route path='consultations' element={<TodaysConsultationLayout/>}>
-                <Route index element={<h2>All consultations</h2>}/>
-                <Route path='today'>
-                  <Route index element={<TodayAllCons/>}/>
+              <Route path='consultations' element={<TodayAllCons/>}/>
+                  <Route index />
                   <Route path='text/:consId' element={<VetTextCons/>}/> 
                   <Route path='video/:consId' element={<VetVideoCons/>}/>
-                </Route>
-                
               </Route>   
             </Route>
-          </Route>
+          
           <Route path='/unauthorized' element={<Unauthorized/>}/>
           <Route path='/notvalid' >
             <Route path='video' element={<NotValidConsPage type={'video'}/>}/>
