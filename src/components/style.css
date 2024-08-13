@@ -277,7 +277,7 @@
     
 }
 .counter-count{
-    font-family: 'Impact';
+    font-family: 'Montserrat';
     color: green;
     font-size: 50px;
     margin: 15px;
@@ -311,7 +311,7 @@
     }
 }
 .info-text{
-    font-family: 'Oswald';
+    font-family: 'Montserrat';
     color: white;
     display: flex;
     justify-content: center;
